@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Account } from 'src/accounts/entities/account.entity';
 import { Transaction } from 'src/transactions/entities/transaction.entity';
 
 
@@ -14,7 +15,7 @@ export const databaseProviders = [
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
       });
-      sequelize.addModels([Transaction]);
+      sequelize.addModels([Transaction, Account]);
       await sequelize.sync({alter: true
         // , force: true
       });
